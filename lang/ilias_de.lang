@@ -145,3 +145,6 @@ lp_by_objects_info#:#Der Lernfortschritt wird automatisch aus der Anzahl der bet
 presentation#:#Darstellung
 perma_link_upload#:#Link zum Mediengallerie-Dateiupload
 msg_obj_modified#:#Einstellungen gespeichert
+xmg_copy#:#Objekt Kopieren
+xmg_edit_learning_progress#:#Lernfortschrittseinstellungen bearbeiten
+xmg_read_learning_progress#:#Lernfortschritt von anderen Benutzern einsehen
