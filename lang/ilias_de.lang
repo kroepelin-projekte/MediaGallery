@@ -148,3 +148,5 @@ perma_link_upload#:#Link zum Mediengallerie-Dateiupload
 xmg_copy#:#Objekt Kopieren
 xmg_edit_learning_progress#:#Lernfortschrittseinstellungen bearbeiten
 xmg_read_learning_progress#:#Lernfortschritt von anderen Benutzern einsehen
+
+msg_obj_modified#:#Einstellungen aktualisiert

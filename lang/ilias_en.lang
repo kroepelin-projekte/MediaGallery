@@ -152,3 +152,5 @@ perma_link_upload#:#Link to file-upload in Mediagallery
 xmg_copy#:#Copy Object
 xmg_edit_learning_progress#:#User can edit learning progress settings
 xmg_read_learning_progress#:#View Learning Progress of Subordinate Users
+
+msg_obj_modified#:#Settings updated
