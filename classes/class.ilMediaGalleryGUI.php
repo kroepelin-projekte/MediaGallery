@@ -198,10 +198,17 @@ class ilMediaGalleryGUI
                 }
                 $tpl_element->parseCurrentBlock();
                 $tpl_element->setVariable('INLINE_SECTION', "aud" . $this->counter);
-                $tpl_element->setVariable('URL_VIDEO', $this->buildWACPathWithFileName($media_gallery_file, ilObjMediaGallery::LOCATION_ORIGINALS));
                 if(strtolower($file_parts['extension']) == 'mov') {
+                    // Trick: Serve the original MOV file with an .mp4 extension and MP4 MIME type.
+                    // This improves browser compatibility, as many browsers refuse to play .mov files
+                    // but will play files ending in .mp4, even if the actual content is still MOV.
+                    $original_path = $this->buildWACPathWithFileName($media_gallery_file, ilObjMediaGallery::LOCATION_ORIGINALS);
+                    $path_info = pathinfo($original_path);
+                    $mp4_path = $path_info['dirname'] . '/' . $path_info['filename'] . '.mp4';
+                    $tpl_element->setVariable('URL_VIDEO', $mp4_path);
                     $tpl_element->setVariable('TYPE_VIDEO', "video/mp4; codecs=avc1.42E01E, mp4a.40.2");
                 } else {
+                    $tpl_element->setVariable('URL_VIDEO', $this->buildWACPathWithFileName($media_gallery_file, ilObjMediaGallery::LOCATION_ORIGINALS));
                     $tpl_element->setVariable('TYPE_VIDEO', $media_gallery_file->getMimeType());
                 }
                 $tpl_element->setVariable('CAPTION', ilLegacyFormElementsUtil::prepareFormOutput(($media_gallery_file->getDescription())));

@@ -5,7 +5,7 @@ $id = "xmg";
  
 // code version; must be changed for all code changes
 
-const xmg_version = '8.1.1';
+const xmg_version = '8.1.2';
 
 $version = xmg_version;
  
