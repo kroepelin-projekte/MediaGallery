@@ -66,10 +66,29 @@ class ilObjMediaGalleryGUI extends ilObjectPluginGUI
     public static function _goto(array $a_target): void
     {
         global $DIC;
+        /** @var \ILIAS\DI\Container $DIC */
         $ilCtrl = $DIC->ctrl();
-        $target_array = explode("_", $a_target[0]);
-        $ref_id = $target_array[0];
-        $param = $target_array[1];
+
+        $ref_id = null;
+        $param = null;
+
+        // Check if the first element of the target array is set
+        if (isset($a_target[0])) {
+            $parts = explode("_", $a_target[0]);
+            $ref_id = $parts[0];
+            // Check if there is a second part after splitting by underscore and use it as param
+            if (isset($parts[1])) {
+                $param = $parts[1];
+            } elseif (isset($a_target[1])) {
+                // Fallback: Second element of the target array as param if the first one doesn't contain an underscore
+                $param = $a_target[1];
+            }
+        }
+
+        if (!$ref_id) {
+            throw new \InvalidArgumentException("No ref_id provided for _goto");
+        }
+
         $ilCtrl->setParameterByClass(ilObjMediaGalleryGUI::class, "ref_id", $ref_id);
         if ($param == ilObjMediaGallery::DIRECT_UPLOAD) {
             $ilCtrl->redirectByClass(
