@@ -146,3 +146,6 @@ presentation#:#Darstellung
 perma_link_upload#:#Link zum Mediengallerie-Dateiupload
 msg_obj_modified#:#Einstellungen gespeichert
 invalid_archive_filename#:#Die Eingabe enthält nicht erlaubte Zeichen. Erlaubt Zeichen sind A-Z, a-z und 0-9.
+xmg_copy#:#Objekt Kopieren
+xmg_edit_learning_progress#:#Lernfortschrittseinstellungen bearbeiten
+xmg_read_learning_progress#:#Lernfortschritt von anderen Benutzern einsehen
